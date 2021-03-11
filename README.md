@@ -62,47 +62,37 @@ The police provide monthly crime statistics for each LSOA going back to the star
 
 The first was to look at whether specific categories of police data would work better (for example one of the categories that they segment is ‘Violence and Sexual Offences’). However, this was met with the same problem, high volumes of offences in the West End. Unfortunately, the police don’t divide their data into categories that match the concerns of house buyers (who most likely are focused on local gang-related problems rather than the wellbeing of tourists). 
 
-Another approach was to look at public attitudes towards crime, rather than crime statistics themselves. The London Mayor’s Office for Policing and Crime conducts quarterly surveys asking people how safe they feel locally, whether gangs are a problem in their area and so on. The limitation to this data is that it is less granular than I would have liked, collected across boroughs rather than LSOAs or wards. However, it did appear to have some predictive value.
+Another approach was to look at public attitudes towards crime, rather than crime statistics themselves. The London Mayor’s Office for Policing and Crime conducts [quarterly surveys](https://github.com/david-rhode/DSI15-capstone-project/blob/main/8_processing_perception_crime.ipynb) asking people how safe they feel locally, whether gangs are a problem in their area and so on. The limitation to this data is that it is less granular than I would have liked, collected across boroughs rather than LSOAs or wards. However, it did appear to have some predictive value.
 
-A final option was to source data from the London Assembly that deals specifically with knife and gun crime, segmented by ward. This was only available as a rolling twelve-month average. However, there was no reason to think this was invalid, as I couldn’t find any evidence to suggest that specific areas have improved relative to others. The knife crime data suffers from the same problem as the police crime statistics (lots of activity in the West End), but gun crime doesn’t (it’s most likely associated with local turf wars over drugs). The gun crime data emerged as the best option, along with the attitudes to crime surveys. Processing of crime data can be viewed here:
-INCLUDE LINK
-
+A final option was to source data from the London Assembly that deals specifically with [knife and gun crime](https://github.com/david-rhode/DSI15-capstone-project/blob/main/10_knife_gun.ipynb), segmented by ward. This was only available as a rolling twelve-month average. However, there was no reason to think this was invalid, as I couldn’t find any evidence to suggest that specific areas have improved relative to others. The knife crime data suffers from the same problem as the police crime statistics (lots of activity in the West End), but gun crime doesn’t (it’s most likely associated with local turf wars over drugs). The gun crime data emerged as the best option, along with the attitudes to crime surveys. 
 
 \
 **ASSEMBLING THE DATA AND EDA**\
-After engineering the features it was time to assemble them all into one dataframe and to produce visualisations. The code for constructing the dataframe is here:
-INCLUDE LINK
+After engineering the features it was time to assemble them all into one dataframe and to produce visualisations. The code for constructing the dataframe is [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/13_constructing_main_dataframe.ipynb).
 
-The first part of the EDA (histograms of features, correlation barchart, heatmap) can be viewed here:
-INCLUDE LINK
+The first part of the EDA (histograms of features, correlation barchart, heatmap) can be viewed [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/14_EDA_part_1.ipynb).
 
-The second part of the EDA (geographic visualisations of the feature variables) can be viewed here:
-INCLUDE LINK
+The second part of the EDA (geographic visualisations of the feature variables) can be viewed [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/15_EDA_part_2.ipynb).
 
-
-
-**PREDICTIVE MODELLING**
-
+\
+**PREDICTIVE MODELLING**\
 The next stage was to build predictive models. First I had to filter the dataframe to include only the features engineered from the postcode (distance to schools, health scores, economic measures, and so on). Excluded were property type, transaction type, estate type etc.
 
 Based on experience with the Ames housing dataset, I started by looking at linear models (Linear Regression, Ridge, Lasso, ElasticNet). These achieved r2 scores around 0.21.
 
 This was slightly disappointing. I’d already checked that key variables (predictor and target) were largely static over time. However, when I looked at the information that had been deliberately excluded it became clear that an uneven spatial distribution was causing a problem. The issue was that the variable ‘property type’ was not independent of postcode - for example, in Tower Hamlets 94% of sold properties are flats, but in Kingston upon Thames the comparable figure is only 26%.
 
-As a result of this discovery, I had to include ‘property type’ as a variable within the model. This meant that there would be no single answer to the question ‘how much will a property’s value change when it moves from postcode A to postcode B?’ Instead, there would be four answers, one for each property type (flats, terraced houses, semi-detached houses, and detached houses). The code for this part of the project can be viewed here:
-INCLUDE LINK
+As a result of this discovery, I had to include ‘property type’ as a variable within the model. This meant that there would be no single answer to the question ‘how much will a property’s value change when it moves from postcode A to postcode B?’ Instead, there would be four answers, one for each property type (flats, terraced houses, semi-detached houses, and detached houses). The code for this part of the project can be viewed [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/16_models_part_1.ipynb).
 
 This change allowed the linear models to improve their scores to about 0.26. This wasn’t a surprise, for the first time they were being given some limited information about size (generally a detached house is bigger than a terrace, though a flat might refer to a tiny studio or a big three bed property in a mansion block). 
 
 Other models performed much better, with KNN scoring 0.50, and Random Forest achieving a score over 0.52. With a highly skewed target variable, it was worth trying a Power Transformation, but this didn’t help the scores.
 
-It was interesting that the linear models had performed relatively poorly, even with regularisation. This seemed to imply that there were non-linear relationships in the data that weren’t being captured by the linear models. I tried applying Polynomial Features (to a maximum power of 2) and this improved the scores of the linear models to around 0.30 (no improvement was seen in Random Forest). Trying interaction terms only didn’t lead to any further improvements. The modelling with Polynomial Features can be seen here:
-INCLUDE LINK
+It was interesting that the linear models had performed relatively poorly, even with regularisation. This seemed to imply that there were non-linear relationships in the data that weren’t being captured by the linear models. I tried applying Polynomial Features (to a maximum power of 2) and this improved the scores of the linear models to around 0.30 (no improvement was seen in Random Forest). Trying interaction terms only didn’t lead to any further improvements. The modelling with Polynomial Features can be seen [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/17_models_part_2.ipynb).
 
-Finally I experimented with a multi-layer perceptron neural network, but failed to beat the Random Forest’s best score of slightly over 0.52. Looking at the model’s residuals, it’s clear that it has a tendency to overvalue cheaper properties, and undervalue the more expensive ones (please see conclusion for further discussion). The model’s feature importances and residuals are visualised here:
-INCLUDE LINK
+Finally I experimented with a multi-layer perceptron neural network, but failed to beat the Random Forest’s best score of slightly over 0.52. Looking at the model’s residuals, it’s clear that it has a tendency to overvalue cheaper properties, and undervalue the more expensive ones (please see conclusion for further discussion). The model’s feature importances and residuals are visualised [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/18_visualise_residuals.ipynb).
 
-
+\
 **ADDRESSING THE PROBLEM STATEMENT**\
 Simply knowing the property type (flat, terraced house etc) and the postcode allowed me to explain away more than half the variance in the dataset (r2 score over 0.52). So how effectively is it possible to ‘move’ a property from one postcode to another?
 
