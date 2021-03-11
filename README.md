@@ -1,9 +1,9 @@
 **LOCATION, LOCATION, LOCATION**\
 **General Assembly Data Science Immersive**\
-**Final Capstone Project (completed February 2021)**\
-
-     
-
+**Final Capstone Project (completed February 2021)**
+\
+\
+\
 **PROBLEM STATEMENT**\
 It’s often said that location is the single most important factor in determining the value of a London property. But to what extent can the price be predicted simply from its location, without access to metrics such as square footage, overall quality, and the number of bedrooms? 
 
@@ -22,8 +22,7 @@ The goal at the end of this project is to write a function that will ‘move’ 
 
 
 
-**BACKGROUND AND COMMERCIAL RELEVANCE**
-
+**BACKGROUND AND COMMERCIAL RELEVANCE**\
 Anyone buying or selling a property needs to estimate its correct market value. Estate agents do this by looking at similar properties that have sold in the area, using them as  benchmarks.  
 
 The problem is that a neighbouring house may be quite different, and an identical house that sold a few hundred meters away might have better access to shops, tubes, schools and so on. Among all the properties in a neighbourhood, the few that have sold recently invariably give rise to a sparse matrix. Estate agents try to plug the gaps with their ‘expertise’, a process which is much less scientific than they tend to imply.
