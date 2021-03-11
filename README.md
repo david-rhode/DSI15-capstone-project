@@ -6,7 +6,11 @@
 
 
 
-PROBLEM STATEMENT
+
+
+
+
+**PROBLEM STATEMENT**
 
 It’s often said that location is the single most important factor in determining the value of a London property. But to what extent can the price be predicted simply from its location, without access to metrics such as square footage, overall quality, and the number of bedrooms? 
 
