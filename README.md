@@ -10,16 +10,8 @@ It’s often said that location is the single most important factor in determini
 Another way to view the same problem:  if a property were to move from one postcode to another, how much would its value change? The most expensive flat currently advertised on Rightmove is located in Mayfair, with an asking price of £11,000,000. The cheapest is in Eltham, selling for £110,000. If the Mayfair flat were to be dismantled brick by brick, and reassembled in Eltham, how much of its value would have been destroyed? 
 
 The goal at the end of this project is to write a function that will ‘move’ any property from one London postcode to another, and calculate by how much its value would have increased or decreased.
-
-
-
-
-
-
-
-
-
-
+\
+\
 
 
 **BACKGROUND AND COMMERCIAL RELEVANCE**\
