@@ -1,5 +1,7 @@
 **LOCATION, LOCATION, LOCATION**
+
 **General Assembly Data Science Immersive**
+
 **Final Capstone Project (completed February 2021)**
 
 
