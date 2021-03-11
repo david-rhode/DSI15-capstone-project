@@ -1,9 +1,6 @@
-![GA](https://user-images.githubusercontent.com/64950454/110799064-b0431100-8272-11eb-996d-aa1f0e1ef1c6.png =250x250)
-
-
-LOCATION, LOCATION, LOCATION
-General Assembly Data Science Immersive 
-Final Capstone Project (completed February 2021)
+**LOCATION, LOCATION, LOCATION**
+**General Assembly Data Science Immersive**
+**Final Capstone Project (completed February 2021)**
 
 
 
