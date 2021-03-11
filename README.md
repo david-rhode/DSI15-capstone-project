@@ -1,4 +1,4 @@
-##LOCATION, LOCATION, LOCATION##
+**LOCATION, LOCATION, LOCATION**
 
 **General Assembly Data Science Immersive**
 
