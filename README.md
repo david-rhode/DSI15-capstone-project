@@ -100,6 +100,7 @@ To do this, I needed to ascribe a relative value to each of London’s 200k uniq
 
 
 This is how the function handles the two flats we started with, in Mayfair and Eltham:
+<img width="568" alt="final_function" src="https://user-images.githubusercontent.com/64950454/110828692-366d5080-828f-11eb-95bb-c9cfc8c286d0.png">
 
 
 
@@ -107,7 +108,7 @@ This is how the function handles the two flats we started with, in Mayfair and E
 
 
 
-
+\
 **EVALUATION AND NEXT STEPS**\
 So does this provide us with a solution to the problem of the sparse matrix, and the need to rely on the intuition/guesswork of estate agents?
 
@@ -115,12 +116,13 @@ The model suggests that moving the Mayfair flat to Eltham would reduce its value
 
 What needs to be done to reach that stage? A clue lies in the model’s residuals.
 
+<img width="447" alt="residuals vs sale price" src="https://user-images.githubusercontent.com/64950454/110828995-8c41f880-828f-11eb-9cf9-63fb80cf6257.png">
 
 
 
 
 
-
+\
 It’s telling that the model tends to overvalue the cheaper properties, and undervalue the more expensive ones. This tendency remains following a Power Transformation on the target variable. It suggests that there are interactions occurring between the information in the dataset, and data that is unavailable to the model. Most obviously, it’s improbable that the overall quality of a property doesn’t correlate at all with its postcode - it makes sense that properties in more desirable postcodes tend to be done up to a higher standard.
 
 Earlier, it wasn’t possible to simply answer the question ‘How much will a property’s value change when it moves postcodes?’ - the question needed four answers, one for each property type. It’s possible that something similar applies here with regards to overall quality.
