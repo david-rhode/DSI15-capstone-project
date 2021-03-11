@@ -2,7 +2,7 @@
 
 **General Assembly Data Science Immersive**
 
-**Final Capstone Project (completed February 2021)**
+**Final Capstone Project (completed February 2021)**&nbsp  
 
 
 
