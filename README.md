@@ -15,7 +15,7 @@ The goal at the end of this project is to write a function that will ‘move’ 
 
 
 
-
+\
 **BACKGROUND AND COMMERCIAL RELEVANCE**\
 Anyone buying or selling a property needs to estimate its correct market value. Estate agents do this by looking at similar properties that have sold in the area, using them as  benchmarks.  
 
@@ -26,7 +26,7 @@ If I can determine the relative values of all London postcodes, then this sparse
 To do this, I will need to quantify the desirability of all of London’s 200,000 unique postcodes. Each postcode will need to be assessed against a range of measures that drive the decisions of buyers and sellers.
 
 
-
+\
 **PROCESSING THE DATA AND ENGINEERING FEATURES**\
 This repository contains twenty numbered notebooks, which can be followed in order or viewed individually. Some of them will run as they are, others need large files which I would be very happy to provide - if required, please contact me [directly](linkedin.com/in/david-rhode).
 
@@ -58,7 +58,7 @@ Proximity to transport links and easy access to the centre of town is almost alw
 Aside from its transport links, a property is likely to be more expensive if it boasts a central location. Trafalgar Square is generally cited as the most central point in London, GeoPandas made it simple to calculate how far any given property was from this location. The processing of this feature can be viewed [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/12_centrality.ipynb).
 
 **Crime**\
-The police provide monthly crime statistics for each LSOA going back to the start of 2018. It seemed obvious that more crime would make an area less desirable. However, I found that aggregating the police data showed a positive correlation between crime levels and property prices (i.e. more crime was associated with higher prices). A closer examination revealed that this was due to high levels of crime in the West End, an area with high property prices - much of it presumably directed against tourists. I looked at a few different approaches to get round this problem.
+The police provide monthly crime statistics for each LSOA going back to the start of 2018. It seemed obvious that more crime would make an area less desirable. However, I found that aggregating the [police data](https://github.com/david-rhode/DSI15-capstone-project/blob/main/7_processing_crime.ipynb) showed a positive correlation between crime levels and property prices (i.e. more crime was associated with higher prices). A closer examination revealed that this was due to high levels of crime in the West End, an area with high property prices - much of it presumably directed against tourists. I looked at a few different approaches to get round this problem.
 
 The first was to look at whether specific categories of police data would work better (for example one of the categories that they segment is ‘Violence and Sexual Offences’). However, this was met with the same problem, high volumes of offences in the West End. Unfortunately, the police don’t divide their data into categories that match the concerns of house buyers (who most likely are focused on local gang-related problems rather than the wellbeing of tourists). 
 
@@ -68,9 +68,8 @@ A final option was to source data from the London Assembly that deals specifical
 INCLUDE LINK
 
 
-
-**ASSEMBLING THE DATA AND EDA**
-
+\
+**ASSEMBLING THE DATA AND EDA**\
 After engineering the features it was time to assemble them all into one dataframe and to produce visualisations. The code for constructing the dataframe is here:
 INCLUDE LINK
 
