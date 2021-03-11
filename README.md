@@ -27,13 +27,10 @@ To do this, I will need to quantify the desirability of all of London’s 200,00
 
 
 
-**PROCESSING THE DATA AND ENGINEERING FEATURES**
-This repository contains twenty numbered notebooks, which can be followed in order or viewed individually. Some of them will run as they are, others need large files which I would be very happy to provide - if required, please contact me directly:
-linkedin.com/in/david-rhode
+**PROCESSING THE DATA AND ENGINEERING FEATURES**\
+This repository contains twenty numbered notebooks, which can be followed in order or viewed individually. Some of them will run as they are, others need large files which I would be very happy to provide - if required, please contact me [directly](linkedin.com/in/david-rhode).
 
 I began by sourcing the records for over 300,000 transactions from the Land Registry, spanning a period of five years to March 2020. These included sale price and postcode, but nothing on square footage, quality and so on. The basic cleaning of this data can be found in the [first notebook](https://github.com/david-rhode/DSI15-capstone-project/blob/main/1_property_transactions.ipynb).
-
-
 
 
 I chose this five-year period for several reasons.
@@ -46,40 +43,21 @@ My initial assumption was that property prices would correlate with two types of
 
 
 
-**Economy**
-
+**Economy**\
 The Ministry of Housing, Communities and Local Government supplies data on the many ways that people can experience deprivation as a result of economic factors - health, education, employment, living environment, and financial. This information is available for each London LSOA (an administrative unit of about 1500 people).  It’s released every few years, the 2019 figures falling within the relevant time period. Comparisons with previous years don’t suggest any obvious anomalies (ie no neighbourhoods making sudden progress relative to others).
 
-These official statistics broadly captured the social and economic status of specific areas, although it’s possible that as neighbourhoods gentrify, the official figures may lag behind and not truly reflect how desirable a location has become. In the absence of any official measure of gentrification, I looked for other indicators - concentrations of [florists](https://github.com/david-rhode/DSI15-capstone-project/blob/main/4_scraping_florists.ipynb), [delicatessens](https://github.com/david-rhode/DSI15-capstone-project/blob/main/5_scraping_delicatessens.ipynb), [estate agents](https://github.com/david-rhode/DSI15-capstone-project/blob/main/3_scraping_estate_agents.ipynb), and smart [restaurants](https://github.com/david-rhode/DSI15-capstone-project/blob/main/2_scraping_restaurants.ipynb). I scraped their postcodes from All In London and The Good Food Guide, and aggregated them by ward (an administrative area of about 10,000 people). Processing of the economic data can be found in these notebooks:
-LINK
-LINK
-LINK
+These official statistics broadly captured the social and economic status of specific areas, although it’s possible that as neighbourhoods gentrify, the official figures may lag behind and not truly reflect how desirable a location has become. In the absence of any official measure of gentrification, I looked for other indicators - concentrations of [florists](https://github.com/david-rhode/DSI15-capstone-project/blob/main/4_scraping_florists.ipynb), [delicatessens](https://github.com/david-rhode/DSI15-capstone-project/blob/main/5_scraping_delicatessens.ipynb), [estate agents](https://github.com/david-rhode/DSI15-capstone-project/blob/main/3_scraping_estate_agents.ipynb), and smart [restaurants](https://github.com/david-rhode/DSI15-capstone-project/blob/main/2_scraping_restaurants.ipynb). I scraped their postcodes from All In London and The Good Food Guide, and aggregated them by ward (an administrative area of about 10,000 people). The processing of the economic data can be viewed [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/11_deprivation_data.ipynb).
 
+**Education**\
+The best schools in London are all heavily oversubscribed, and living within the general catchment area is no guarantee of getting a place (in spite of what estate agents might suggest when pushing for a sale).  Statistics on the average distance travelled to school suggest that living within 500m should almost always guarantee a place. Ofsted provides data on which schools are rated ‘Outstanding’, including their postcodes. GeoPandas allowed me to draw a circle of radius 500m around those schools, to create a feature that determines whether any specific property entitles its occupants to a place at an ‘Outstanding’ school. Processing of the schools data can be viewed [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/6_processing_schools.ipynb).
 
-**Education**
+**Transport**\
+Proximity to transport links and easy access to the centre of town is almost always cited in surveys looking at what makes a property desirable. GeoPandas let me draw circles of varying radius around each London tube station. It’s possible to check if a property is within 50m of a tube (bad news presumably), 200m, 400m and so on. I modelled features up to a radius of 2400m, on the basis that a 1.5 mile walk (over 20 minutes) is about the most than anyone will consider walking to the tube. Processing of the tube data can be viewed [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/9_processing_tubes.ipynb).
 
-The best schools in London are all heavily oversubscribed, and living within the general catchment area is no guarantee of getting a place (in spite of what estate agents might suggest when pushing for a sale).  Statistics on the average distance travelled to school suggest that living within 500m should almost always guarantee a place. Ofsted provides data on which schools are rated ‘Outstanding’, including their postcodes. GeoPandas allowed me to draw a circle of radius 500m around those schools, to create a feature that determines whether any specific property entitles its occupants to a place at an ‘Outstanding’ school. Processing of schools data can be viewed here:
+**Centrality**\
+Aside from its transport links, a property is likely to be more expensive if it boasts a central location. Trafalgar Square is generally cited as the most central point in London, GeoPandas made it simple to calculate how far any given property was from this location. The processing of this feature can be viewed [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/12_centrality.ipynb).
 
-INCLUDE LINK
-
-
-**Transport**
-
-Proximity to transport links and easy access to the centre of town is almost always cited in surveys looking at what makes a property desirable. GeoPandas let me draw circles of varying radius around each London tube station. It’s possible to check if a property is within 50m of a tube (bad news presumably), 200m, 400m and so on. I modelled features up to a radius of 2400m, on the basis that a 1.5 mile walk (over 20 minutes) is about the most than anyone will consider walking to the tube. Processing of tube data can be viewed here:
-
-INCLUDE LINK
-
-
-**Centrality**
-
-Aside from its transport links, a property is likely to be more expensive if it boasts a central location. Trafalgar Square is generally cited as the most central point in London, GeoPandas made it simple to calculate how far any given property was from this location. Processing this feature can be viewed here:
-
-INCLUDE LINK
-
-
-
-**Crime**
-
+**Crime**\
 The police provide monthly crime statistics for each LSOA going back to the start of 2018. It seemed obvious that more crime would make an area less desirable. However, I found that aggregating the police data showed a positive correlation between crime levels and property prices (i.e. more crime was associated with higher prices). A closer examination revealed that this was due to high levels of crime in the West End, an area with high property prices - much of it presumably directed against tourists. I looked at a few different approaches to get round this problem.
 
 The first was to look at whether specific categories of police data would work better (for example one of the categories that they segment is ‘Violence and Sexual Offences’). However, this was met with the same problem, high volumes of offences in the West End. Unfortunately, the police don’t divide their data into categories that match the concerns of house buyers (who most likely are focused on local gang-related problems rather than the wellbeing of tourists). 
@@ -126,8 +104,7 @@ Finally I experimented with a multi-layer perceptron neural network, but failed 
 INCLUDE LINK
 
 
-**ADDRESSING THE PROBLEM STATEMENT**
-
+**ADDRESSING THE PROBLEM STATEMENT**\
 Simply knowing the property type (flat, terraced house etc) and the postcode allowed me to explain away more than half the variance in the dataset (r2 score over 0.52). So how effectively is it possible to ‘move’ a property from one postcode to another?
 
 To do this, I needed to ascribe a relative value to each of London’s 200k unique postcodes (less than 70k out of these appeared in the transaction data). I addressed this by creating a new dataframe of about 800k rows. This comprised just under 200k unique postcodes, multiplied by 4 property types (flat, terraced house etc) - essentially creating 800k fictional properties. The Random Forest model, trained on real properties, was then used to predict prices for all of them. The final step was then to write a function to ‘move’ a property, evaluate the loss or gain in value, and plot the move. The code to assemble the final dataframe and to construct the function are here:
@@ -142,8 +119,7 @@ This is how the function handles the two flats we started with, in Mayfair and E
 
 
 
-**EVALUATION AND NEXT STEPS**
-
+**EVALUATION AND NEXT STEPS**\
 So does this provide us with a solution to the problem of the sparse matrix, and the need to rely on the intuition/guesswork of estate agents?
 
 The model suggests that moving the Mayfair flat to Eltham would reduce its value by 96%, from £11,000,000 to £440,000. How realistic is that? It would surely beat the ceiling price for a flat in Eltham, but probably not by much - gold taps lose much of their value if they are taken out of a postcode that billionaires want to live in. The most expensive flats in Eltham are currently advertised for over £500,000 (asking prices, not confirmed sales) so it looks like the model slightly overstates how much value was destroyed (94-95% is probably more accurate). It’s a good start, but it wouldn’t be wise yet to trust it with real money. 
