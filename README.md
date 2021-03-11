@@ -97,6 +97,8 @@ Finally I experimented with a multi-layer perceptron [neural network](https://gi
 Simply knowing the property type (flat, terraced house etc) and the postcode allowed me to explain away more than half the variance in the dataset (r2 score over 0.52). So how effectively is it possible to ‘move’ a property from one postcode to another?
 
 To do this, I needed to ascribe a relative value to each of London’s 200k unique postcodes (less than 70k out of these appeared in the transaction data). I addressed this by creating a new dataframe of about 800k rows. This comprised just under 200k unique postcodes, multiplied by 4 property types (flat, terraced house etc) - essentially creating 800k fictional properties. The Random Forest model, trained on real properties, was then used to predict prices for all of them. The final step was then to write a function to ‘move’ a property, evaluate the loss or gain in value, and plot the move. The code to assemble the final dataframe and to construct the function is [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/20_final_dataframe.ipynb). This is how the function handles the two flats we started with, in Mayfair and Eltham:
+\
+\
 <img width="568" alt="final_function" src="https://user-images.githubusercontent.com/64950454/110828692-366d5080-828f-11eb-95bb-c9cfc8c286d0.png">
 
 
