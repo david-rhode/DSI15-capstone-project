@@ -16,7 +16,7 @@ The goal at the end of this project is to write a function that will ‘move’ 
 
 
 
-**BACKGROUND AND COMMERCIAL RELEVANCE**\
+**BACKGROUND AND COMMERCIAL RELEVANCE**
 Anyone buying or selling a property needs to estimate its correct market value. Estate agents do this by looking at similar properties that have sold in the area, using them as  benchmarks.  
 
 The problem is that a neighbouring house may be quite different, and an identical house that sold a few hundred meters away might have better access to shops, tubes, schools and so on. Among all the properties in a neighbourhood, the few that have sold recently invariably give rise to a sparse matrix. Estate agents try to plug the gaps with their ‘expertise’, a process which is much less scientific than they tend to imply.
@@ -28,7 +28,6 @@ To do this, I will need to quantify the desirability of all of London’s 200,00
 
 
 **PROCESSING THE DATA AND ENGINEERING FEATURES**
-
 This repository contains twenty numbered notebooks, which can be followed in order or viewed individually. Some of them will run as they are, others need large files which I would be very happy to provide - if required, please contact me directly:
 linkedin.com/in/david-rhode
 
