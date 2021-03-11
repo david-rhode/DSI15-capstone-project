@@ -31,7 +31,7 @@ To do this, I will need to quantify the desirability of all of London’s 200,00
 This repository contains twenty numbered notebooks, which can be followed in order or viewed individually. Some of them will run as they are, others need large files which I would be very happy to provide - if required, please contact me directly:
 linkedin.com/in/david-rhode
 
-I began by sourcing the records for over 300,000 transactions from the Land Registry, spanning a period of five years to March 2020. These included sale price and postcode, but nothing on square footage, quality and so on. The basic cleaning of this data can be found in the [first notebook] (https://github.com/david-rhode/DSI15-capstone-project/blob/main/1_property_transactions.ipynb).
+I began by sourcing the records for over 300,000 transactions from the Land Registry, spanning a period of five years to March 2020. These included sale price and postcode, but nothing on square footage, quality and so on. The basic cleaning of this data can be found in the [first notebook](https://github.com/david-rhode/DSI15-capstone-project/blob/main/1_property_transactions.ipynb).
 
 
 
