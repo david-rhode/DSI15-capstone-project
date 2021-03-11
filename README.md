@@ -2,11 +2,11 @@
 
 **General Assembly Data Science Immersive**
 
-**Final Capstone Project (completed February 2021)**&nbsp  
+**Final Capstone Project (completed February 2021)**  
 
 
 
-###PROBLEM STATEMENT###
+**PROBLEM STATEMENT**
 
 It’s often said that location is the single most important factor in determining the value of a London property. But to what extent can the price be predicted simply from its location, without access to metrics such as square footage, overall quality, and the number of bedrooms? 
 
@@ -25,7 +25,7 @@ The goal at the end of this project is to write a function that will ‘move’ 
 
 
 
-BACKGROUND AND COMMERCIAL RELEVANCE
+**BACKGROUND AND COMMERCIAL RELEVANCE**
 
 Anyone buying or selling a property needs to estimate its correct market value. Estate agents do this by looking at similar properties that have sold in the area, using them as  benchmarks.  
 
@@ -37,7 +37,7 @@ To do this, I will need to quantify the desirability of all of London’s 200,00
 
 
 
-PROCESSING THE DATA AND ENGINEERING FEATURES
+**PROCESSING THE DATA AND ENGINEERING FEATURES**
 
 This repository contains twenty numbered notebooks, which can be followed in order or viewed individually. Some of them will run as they are, others need large files which I would be very happy to provide - if required, please contact me directly:
 linkedin.com/in/david-rhode
@@ -58,7 +58,7 @@ My initial assumption was that property prices would correlate with two types of
 21_data_dictionary.ipynb (include link)
 
 
-Economy
+**Economy**
 
 The Ministry of Housing, Communities and Local Government supplies data on the many ways that people can experience deprivation as a result of economic factors - health, education, employment, living environment, and financial. This information is available for each London LSOA (an administrative unit of about 1500 people).  It’s released every few years, the 2019 figures falling within the relevant time period. Comparisons with previous years don’t suggest any obvious anomalies (ie no neighbourhoods making sudden progress relative to others).
 
@@ -68,27 +68,29 @@ LINK
 LINK
 
 
-Education
+**Education**
 
 The best schools in London are all heavily oversubscribed, and living within the general catchment area is no guarantee of getting a place (in spite of what estate agents might suggest when pushing for a sale).  Statistics on the average distance travelled to school suggest that living within 500m should almost always guarantee a place. Ofsted provides data on which schools are rated ‘Outstanding’, including their postcodes. GeoPandas allowed me to draw a circle of radius 500m around those schools, to create a feature that determines whether any specific property entitles its occupants to a place at an ‘Outstanding’ school. Processing of schools data can be viewed here:
 
 INCLUDE LINK
 
 
-Transport
+**Transport**
+
 Proximity to transport links and easy access to the centre of town is almost always cited in surveys looking at what makes a property desirable. GeoPandas let me draw circles of varying radius around each London tube station. It’s possible to check if a property is within 50m of a tube (bad news presumably), 200m, 400m and so on. I modelled features up to a radius of 2400m, on the basis that a 1.5 mile walk (over 20 minutes) is about the most than anyone will consider walking to the tube. Processing of tube data can be viewed here:
 
 INCLUDE LINK
 
 
-Centrality
+**Centrality**
+
 Aside from its transport links, a property is likely to be more expensive if it boasts a central location. Trafalgar Square is generally cited as the most central point in London, GeoPandas made it simple to calculate how far any given property was from this location. Processing this feature can be viewed here:
 
 INCLUDE LINK
 
 
 
-Crime
+**Crime**
 
 The police provide monthly crime statistics for each LSOA going back to the start of 2018. It seemed obvious that more crime would make an area less desirable. However, I found that aggregating the police data showed a positive correlation between crime levels and property prices (i.e. more crime was associated with higher prices). A closer examination revealed that this was due to high levels of crime in the West End, an area with high property prices - much of it presumably directed against tourists. I looked at a few different approaches to get round this problem.
 
@@ -101,7 +103,7 @@ INCLUDE LINK
 
 
 
-ASSEMBLING THE DATA AND EDA
+**ASSEMBLING THE DATA AND EDA**
 
 After engineering the features it was time to assemble them all into one dataframe and to produce visualisations. The code for constructing the dataframe is here:
 INCLUDE LINK
@@ -114,7 +116,7 @@ INCLUDE LINK
 
 
 
-PREDICTIVE MODELLING
+**PREDICTIVE MODELLING**
 
 The next stage was to build predictive models. First I had to filter the dataframe to include only the features engineered from the postcode (distance to schools, health scores, economic measures, and so on). Excluded were property type, transaction type, estate type etc.
 
@@ -132,14 +134,11 @@ Other models performed much better, with KNN scoring 0.50, and Random Forest ach
 It was interesting that the linear models had performed relatively poorly, even with regularisation. This seemed to imply that there were non-linear relationships in the data that weren’t being captured by the linear models. I tried applying Polynomial Features (to a maximum power of 2) and this improved the scores of the linear models to around 0.30 (no improvement was seen in Random Forest). Trying interaction terms only didn’t lead to any further improvements. The modelling with Polynomial Features can be seen here:
 INCLUDE LINK
 
-
-
-
 Finally I experimented with a multi-layer perceptron neural network, but failed to beat the Random Forest’s best score of slightly over 0.52. Looking at the model’s residuals, it’s clear that it has a tendency to overvalue cheaper properties, and undervalue the more expensive ones (please see conclusion for further discussion). The model’s feature importances and residuals are visualised here:
 INCLUDE LINK
 
 
-ADDRESSING THE PROBLEM STATEMENT
+**ADDRESSING THE PROBLEM STATEMENT**
 
 Simply knowing the property type (flat, terraced house etc) and the postcode allowed me to explain away more than half the variance in the dataset (r2 score over 0.52). So how effectively is it possible to ‘move’ a property from one postcode to another?
 
@@ -155,7 +154,7 @@ This is how the function handles the two flats we started with, in Mayfair and E
 
 
 
-EVALUATION AND NEXT STEPS
+**EVALUATION AND NEXT STEPS**
 
 So does this provide us with a solution to the problem of the sparse matrix, and the need to rely on the intuition/guesswork of estate agents?
 
