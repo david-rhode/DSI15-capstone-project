@@ -28,7 +28,7 @@ To do this, I will need to quantify the desirability of all of London’s 200,00
 
 \
 **PROCESSING THE DATA AND ENGINEERING FEATURES**\
-This repository contains twenty numbered notebooks, which can be followed in order or viewed individually. Some of them will run as they are, others need large files which I would be very happy to provide - if required, please contact me [directly](linkedin.com/in/david-rhode).
+This repository contains twenty numbered notebooks, which can be followed in order or viewed individually. Some of them will run as they are, others need large files which I would be very happy to provide - if required, please contact me [directly](https://www.linkedin.com/in/david-rhode/).
 
 I began by sourcing the records for over 300,000 transactions from the Land Registry, spanning a period of five years to March 2020. These included sale price and postcode, but nothing on square footage, quality and so on. The basic cleaning of this data can be found in the [first notebook](https://github.com/david-rhode/DSI15-capstone-project/blob/main/1_property_transactions.ipynb).
 
@@ -90,14 +90,14 @@ Other models performed much better, with KNN scoring 0.50, and Random Forest ach
 
 It was interesting that the linear models had performed relatively poorly, even with regularisation. This seemed to imply that there were non-linear relationships in the data that weren’t being captured by the linear models. I tried applying Polynomial Features (to a maximum power of 2) and this improved the scores of the linear models to around 0.30 (no improvement was seen in Random Forest). Trying interaction terms only didn’t lead to any further improvements. The modelling with Polynomial Features can be seen [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/17_models_part_2.ipynb).
 
-Finally I experimented with a multi-layer perceptron neural network, but failed to beat the Random Forest’s best score of slightly over 0.52. Looking at the model’s residuals, it’s clear that it has a tendency to overvalue cheaper properties, and undervalue the more expensive ones (please see conclusion for further discussion). The model’s feature importances and residuals are visualised [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/18_visualise_residuals.ipynb).
+Finally I experimented with a multi-layer perceptron [neural network](https://github.com/david-rhode/DSI15-capstone-project/blob/main/19_models_part3.ipynb), but failed to beat the Random Forest’s best score of slightly over 0.52. Looking at the model’s residuals, it’s clear that it has a tendency to overvalue cheaper properties, and undervalue the more expensive ones (please see conclusion for further discussion). The model’s feature importances and residuals are visualised [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/18_visualise_residuals.ipynb).
 
 \
 **ADDRESSING THE PROBLEM STATEMENT**\
 Simply knowing the property type (flat, terraced house etc) and the postcode allowed me to explain away more than half the variance in the dataset (r2 score over 0.52). So how effectively is it possible to ‘move’ a property from one postcode to another?
 
-To do this, I needed to ascribe a relative value to each of London’s 200k unique postcodes (less than 70k out of these appeared in the transaction data). I addressed this by creating a new dataframe of about 800k rows. This comprised just under 200k unique postcodes, multiplied by 4 property types (flat, terraced house etc) - essentially creating 800k fictional properties. The Random Forest model, trained on real properties, was then used to predict prices for all of them. The final step was then to write a function to ‘move’ a property, evaluate the loss or gain in value, and plot the move. The code to assemble the final dataframe and to construct the function are here:
-LINK
+To do this, I needed to ascribe a relative value to each of London’s 200k unique postcodes (less than 70k out of these appeared in the transaction data). I addressed this by creating a new dataframe of about 800k rows. This comprised just under 200k unique postcodes, multiplied by 4 property types (flat, terraced house etc) - essentially creating 800k fictional properties. The Random Forest model, trained on real properties, was then used to predict prices for all of them. The final step was then to write a function to ‘move’ a property, evaluate the loss or gain in value, and plot the move. The code to assemble the final dataframe and to construct the function is [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/20_final_dataframe.ipynb).
+
 
 This is how the function handles the two flats we started with, in Mayfair and Eltham:
 
