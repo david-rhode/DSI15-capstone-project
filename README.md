@@ -7,7 +7,6 @@
      
 
 **PROBLEM STATEMENT**
-
 It’s often said that location is the single most important factor in determining the value of a London property. But to what extent can the price be predicted simply from its location, without access to metrics such as square footage, overall quality, and the number of bedrooms? 
 
 Another way to view the same problem:  if a property were to move from one postcode to another, how much would its value change? The most expensive flat currently advertised on Rightmove is located in Mayfair, with an asking price of £11,000,000. The cheapest is in Eltham, selling for £110,000. If the Mayfair flat were to be dismantled brick by brick, and reassembled in Eltham, how much of its value would have been destroyed? 
