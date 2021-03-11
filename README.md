@@ -38,13 +38,12 @@ I began by sourcing the records for over 300,000 transactions from the Land Regi
 
 I chose this five-year period for several reasons.
 
-It provides enough data to draw conclusions confidently, while remaining relatively easy to work with.
-The final cut-off of March 2020 means that I don’t have to account for any market disruption caused by COVID-19.
-London property prices were relatively stable during this period (given the number of exogenous variables I didn’t want to have to build a time-series model to deal with any underlying trends).
+- It provides enough data to draw conclusions confidently, while remaining relatively easy to work with.
+- The final cut-off of March 2020 means that I don’t have to account for any market disruption caused by COVID-19.
+- London property prices were relatively stable during this period (given the number of exogenous variables I didn’t want to have to build a time-series model to deal with any underlying trends).
 
-My initial assumption was that property prices would correlate with two types of factors. First, the economic status of its residents (wealthy buyers can afford high prices). Second, the features that define objectively how desirable a location is (transport links, good schools etc). I assumed a degree of interaction between these two groups (better amenities drive prices higher, attracting wealthier residents and so on). My plan was to engineer features derived from postcodes that fall into five categories: economic issues, crime, education, transport, and centrality. Please see the data dictionary for a full list:
+My initial assumption was that property prices would correlate with two types of factors. First, the economic status of its residents (wealthy buyers can afford high prices). Second, the features that define objectively how desirable a location is (transport links, good schools etc). I assumed a degree of interaction between these two groups (better amenities drive prices higher, attracting wealthier residents and so on). My plan was to engineer features derived from postcodes that fall into five categories: economic issues, crime, education, transport, and centrality. Please see the [data dictionary]( for a full list.
 
-21_data_dictionary.ipynb (include link)
 
 
 **Economy**
