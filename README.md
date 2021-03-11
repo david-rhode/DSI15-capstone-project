@@ -96,10 +96,7 @@ Finally I experimented with a multi-layer perceptron [neural network](https://gi
 **ADDRESSING THE PROBLEM STATEMENT**\
 Simply knowing the property type (flat, terraced house etc) and the postcode allowed me to explain away more than half the variance in the dataset (r2 score over 0.52). So how effectively is it possible to ‘move’ a property from one postcode to another?
 
-To do this, I needed to ascribe a relative value to each of London’s 200k unique postcodes (less than 70k out of these appeared in the transaction data). I addressed this by creating a new dataframe of about 800k rows. This comprised just under 200k unique postcodes, multiplied by 4 property types (flat, terraced house etc) - essentially creating 800k fictional properties. The Random Forest model, trained on real properties, was then used to predict prices for all of them. The final step was then to write a function to ‘move’ a property, evaluate the loss or gain in value, and plot the move. The code to assemble the final dataframe and to construct the function is [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/20_final_dataframe.ipynb).
-
-
-This is how the function handles the two flats we started with, in Mayfair and Eltham:
+To do this, I needed to ascribe a relative value to each of London’s 200k unique postcodes (less than 70k out of these appeared in the transaction data). I addressed this by creating a new dataframe of about 800k rows. This comprised just under 200k unique postcodes, multiplied by 4 property types (flat, terraced house etc) - essentially creating 800k fictional properties. The Random Forest model, trained on real properties, was then used to predict prices for all of them. The final step was then to write a function to ‘move’ a property, evaluate the loss or gain in value, and plot the move. The code to assemble the final dataframe and to construct the function is [here](https://github.com/david-rhode/DSI15-capstone-project/blob/main/20_final_dataframe.ipynb). This is how the function handles the two flats we started with, in Mayfair and Eltham:
 <img width="568" alt="final_function" src="https://user-images.githubusercontent.com/64950454/110828692-366d5080-828f-11eb-95bb-c9cfc8c286d0.png">
 
 
@@ -112,9 +109,7 @@ This is how the function handles the two flats we started with, in Mayfair and E
 **EVALUATION AND NEXT STEPS**\
 So does this provide us with a solution to the problem of the sparse matrix, and the need to rely on the intuition/guesswork of estate agents?
 
-The model suggests that moving the Mayfair flat to Eltham would reduce its value by 96%, from £11,000,000 to £440,000. How realistic is that? It would surely beat the ceiling price for a flat in Eltham, but probably not by much - gold taps lose much of their value if they are taken out of a postcode that billionaires want to live in. The most expensive flats in Eltham are currently advertised for over £500,000 (asking prices, not confirmed sales) so it looks like the model slightly overstates how much value was destroyed (94-95% is probably more accurate). It’s a good start, but it wouldn’t be wise yet to trust it with real money. 
-
-What needs to be done to reach that stage? A clue lies in the model’s residuals.
+The model suggests that moving the Mayfair flat to Eltham would reduce its value by 96%, from £11,000,000 to £440,000. How realistic is that? It would surely beat the ceiling price for a flat in Eltham, but probably not by much - gold taps lose much of their value if they are taken out of a postcode that billionaires want to live in. The most expensive flats in Eltham are currently advertised for over £500,000 (asking prices, not confirmed sales) so it looks like the model slightly overstates how much value was destroyed (94-95% is probably more accurate). It’s a good start, but it wouldn’t be wise yet to trust it with real money. What needs to be done to reach that stage? A clue lies in the model’s residuals.
 
 <img width="447" alt="residuals vs sale price" src="https://user-images.githubusercontent.com/64950454/110828995-8c41f880-828f-11eb-9cf9-63fb80cf6257.png">
 
