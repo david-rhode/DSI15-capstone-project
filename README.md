@@ -115,7 +115,7 @@ The model suggests that moving the Mayfair flat to Eltham would reduce its value
 
 <img width="447" alt="residuals vs sale price" src="https://user-images.githubusercontent.com/64950454/110828995-8c41f880-828f-11eb-9cf9-63fb80cf6257.png">
 
-
+<img width="431" alt="Screenshot 2021-03-15 at 12 39 22" src="https://user-images.githubusercontent.com/64950454/111154892-a16aa000-858b-11eb-8e0b-9f5a86a87ec0.png">
 
 
 
