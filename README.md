@@ -1,4 +1,4 @@
-**LOCATION, LOCATION, LOCATION**\
+**'LOCATION, LOCATION, LOCATION'**\
 **General Assembly Data Science Immersive**\
 **Final Capstone Project (completed February 2021)**
 \
@@ -108,7 +108,7 @@ To do this, I needed to ascribe a relative value to each of London’s 200k uniq
 
 
 \
-**EVALUATION AND NEXT STEPS**\
+**EVALUATION**\
 So does this provide us with a solution to the problem of the sparse matrix, and the need to rely on the intuition/guesswork of estate agents?
 
 The model suggests that moving the Mayfair flat to Eltham would reduce its value by 96%, from £11,000,000 to £440,000. How realistic is that? It would surely beat the ceiling price for a flat in Eltham, but probably not by much - gold taps lose much of their value if they are taken out of a postcode that billionaires want to live in. The most expensive flats in Eltham are currently advertised for over £500,000 (asking prices, not confirmed sales) so it looks like the model slightly overstates how much value was destroyed (94-95% is probably more accurate). It’s a good start, but it wouldn’t be wise yet to trust it with real money. What needs to be done to reach that stage? A clue lies in the model’s residuals.
@@ -127,7 +127,8 @@ However, this certainly isn't the whole story - the same pattern persists when I
 This persistence suggests that there are interactions occurring between the information in the dataset, and data that is unavailable to the model. For example, it seems improbable that the overall quality of a property doesn’t correlate at all with its postcode - it makes sense that properties in more desirable postcodes tend to be done up to a higher standard.
 
 Earlier, it wasn’t possible to simply answer the question ‘How much will a property’s value change when it moves postcodes?’ - the question needed four answers, one for each property type. It’s possible that something similar applies here with regards to overall quality.
-
+\
+**NEXT STEPS**
 The features that were engineered from the postcodes work well on their own terms. To get real commercial value from them though, the next step would be to layer them on top of the more traditional metrics that the model didn’t have access to (overall quality, size etc). Once the model is trained on this extended dataset, it could effectively ‘move’ any property between postcodes as long as we know that property’s size, quality and so on. 
 
 In addition, there are a couple of minor improvements that would be easy to make. Overground train stops could be added to the data on tubes. Location data for parks and the river would also be helpful. 
