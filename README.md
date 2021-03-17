@@ -127,8 +127,9 @@ However, this certainly isn't the whole story - the same pattern persists when I
 This persistence suggests that there are interactions occurring between the information in the dataset, and data that is unavailable to the model. For example, it seems improbable that the overall quality of a property doesn’t correlate at all with its postcode - it makes sense that properties in more desirable postcodes tend to be done up to a higher standard.
 
 Earlier, it wasn’t possible to simply answer the question ‘How much will a property’s value change when it moves postcodes?’ - the question needed four answers, one for each property type. It’s possible that something similar applies here with regards to overall quality.
+
 \
-**NEXT STEPS**
+**NEXT STEPS**\
 The features that were engineered from the postcodes work well on their own terms. To get real commercial value from them though, the next step would be to layer them on top of the more traditional metrics that the model didn’t have access to (overall quality, size etc). Once the model is trained on this extended dataset, it could effectively ‘move’ any property between postcodes as long as we know that property’s size, quality and so on. 
 
 In addition, there are a couple of minor improvements that would be easy to make. Overground train stops could be added to the data on tubes. Location data for parks and the river would also be helpful. 
