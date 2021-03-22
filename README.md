@@ -136,6 +136,7 @@ In addition, there are a couple of minor improvements that would be easy to make
 
 \
 **NON-TECHNICAL TAKEAWAYS**
+\
 This project proved to be hard work, but in the end was very satisfying. Aside from the technical conclusions listed above, a few more general points became clear to me.
 
 1.	There is a balance to be struck between risk and reward, particularly when the timeline is tight. This project required extensive use of GeoPandas, which wasn’t taught as part of the General Assembly DSI course. Deciding to learn GeoPandas by myself was a gamble that paid off – but there definitely moments when I questioned that decision. 
