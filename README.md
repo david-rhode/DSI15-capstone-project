@@ -134,6 +134,18 @@ The features that were engineered from the postcodes work well on their own term
 
 In addition, there are a couple of minor improvements that would be easy to make. Overground train stops could be added to the data on tubes. Location data for parks and the river would also be helpful. 
 
+\
+**NON-TECHNICAL TAKEAWAYS**
+\
+This project proved to be hard work, but in the end was very satisfying. Aside from the technical conclusions listed above, a few more general points became clear to me.
+\
+1.	There is a balance to be struck between risk and reward, particularly when the timeline is tight. This project required extensive use of GeoPandas, which wasn’t taught as part of the General Assembly DSI course. Deciding to learn GeoPandas by myself was a gamble that paid off – but there definitely moments when I questioned that decision. 
+2.	With lots of features to engineer, this project had a tendency to sprawl across multiple notebooks and many big files. Keeping the notebooks tidy swallowed up time that I was tempted to spend elsewhere, but was essential to staying on top of things.
+3.	Not every idea turns out how you might like. I had hoped that unsupervised clustering would reveal some interesting patterns in the data, but all it demonstrated was that central London is expensive – hardly a revelation. Perhaps with more time it might be possible to tune the features to get something more out of this.
+4.	On the subject of time, there is never enough of it. W.H. Auden is credited with the line that ‘A poem is never finished, only abandoned’. In my experience, the same is true of data science projects.
+![image](https://user-images.githubusercontent.com/64950454/112029498-38f26480-8b31-11eb-94fa-b14ab815f0d6.png)
+
+
 
 
 
