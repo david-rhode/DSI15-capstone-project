@@ -119,12 +119,7 @@ The model suggests that moving the Mayfair flat to Eltham would reduce its value
 \
 It’s telling that the model tends to overvalue the cheaper properties, and undervalue the more expensive ones. There are a couple of possible reasons for this. The first is that buyers can display irrationality at the higher price points - money often means less to people who have lots of it, and with a limited number of outstanding properties on the market it's easy for prices to escalate disproportionately. The result of this is a heavily skewed target variable, and it perhaps isn't surprising that the model tends to undervalue the most expensive properties. 
 
-However, this certainly isn't the whole story - the same pattern persists when I performed a log transformation on the price and re-plotted the residuals:
-
-<img width="417" alt="Screenshot 2021-03-15 at 12 39 22" src="https://user-images.githubusercontent.com/64950454/111155176-0625fa80-858c-11eb-8c8a-7614c5c14a2c.png">
-
-\
-This persistence suggests that there are interactions occurring between the information in the dataset, and data that is unavailable to the model. For example, it seems improbable that the overall quality of a property doesn’t correlate at all with its postcode - it makes sense that properties in more desirable postcodes tend to be done up to a higher standard.
+However, this certainly isn't the whole story - the same pattern persists when I performed a log transformation on the price and re-plotted the residuals. This persistence suggests that there are interactions occurring between the information in the dataset, and data that is unavailable to the model. For example, it seems improbable that the overall quality of a property doesn’t correlate at all with its postcode - it makes sense that properties in more desirable postcodes tend to be done up to a higher standard.
 
 Earlier, it wasn’t possible to simply answer the question ‘How much will a property’s value change when it moves postcodes?’ - the question needed four answers, one for each property type. It’s possible that something similar applies here with regards to overall quality.
 
